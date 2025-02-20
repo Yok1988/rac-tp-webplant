@@ -51,11 +51,7 @@ export default function TabsLayout() {
                     }}
                     />  
                 </Tabs>  
-                {/* <Tabs>
-                <Tabs.Screen name="index" options={{ title: "🏠 Home" }} />        
-                <Tabs.Screen name="sales-erp" options={{ title: "📚📚 salesfile" }} />
-                <Tabs.Screen name="sales" options={{ title: "⚙️ sales" }} />
-                </Tabs> */}
+
             </QueryClientProvider>
     );
 }

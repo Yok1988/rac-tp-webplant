@@ -2,12 +2,15 @@ import { useEffect, useState } from "react";
 import { useRouter } from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { View, ActivityIndicator, Text } from "react-native";
+import { useNavigation } from "expo-router";
 
 export default function Index() {
     const router = useRouter();
     const [loading, setLoading] = useState(true);
-
+    const navigation = useNavigation();
+    
     useEffect(() => {
+        navigation.setOptions({ headerShown: false });
         const checkLogin = async () => {
             try {
                 const token = await AsyncStorage.getItem("token");
@@ -26,7 +29,7 @@ export default function Index() {
         };
 
         checkLogin();
-    }, []);
+    }, [navigation]);
 
     if (loading) {
         return (
