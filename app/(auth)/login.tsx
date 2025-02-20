@@ -58,10 +58,9 @@ export default function LoginScreen() {
       
         if (res?.success) {
           console.log("✅ ล็อกอินสำเร็จ");
-          router.replace("/(tabs)");
+          router.replace("/(main)/(tabs)/(home)");
           console.log(`🎉 เข้าสู่ระบบสำเร็จ! ยินดีต้อนรับ ${res.Userid}`);
           alert(`🎉 เข้าสู่ระบบสำเร็จ! ยินดีต้อนรับ ${res.Userid}`);
-      
           if (useToken) {
             console.log("💾 กำลังบันทึก Token:", res.token);
             await AsyncStorage.setItem("token", res.token);
@@ -76,18 +75,24 @@ export default function LoginScreen() {
         <KeyboardAvoidingView
             style={styles.container}
             behavior={Platform.OS === "ios" ? "padding" : "height"}
-        >
+        >            
             {/* โลโก้ตรงกลาง */}
             <Image source={require("@/assets/images/TPI-Polene-Logo.png")} style={styles.logo} />
-
             <Card style={styles.card}>
                 <Card.Content>
                     <TextInput label="User ID" value={userid} onChangeText={setUserid} mode="outlined" />
                     <TextInput label="Password" secureTextEntry value={password} onChangeText={setPassword} mode="outlined" />
-                    <Button mode="contained" onPress={() => onSubmit(false)} style={styles.button}>LOGIN</Button>
-                    <Button mode="contained" onPress={() => onSubmit(true)} style={styles.button}> เข้าสู่ระบบ (ใช้ Token)</Button>
+                    {/* <Button mode="contained" onPress={() => onSubmit(false)} style={[styles.button, { backgroundColor: '#3366FF'}]}>
+                      LOGIN
+                    </Button>
+                    <Button mode="contained" onPress={() => onSubmit(true)}  style={[styles.button, { backgroundColor: '#3366FF'}]}> 
+                      เข้าสู่ระบบ (ใช้ Token)
+                    </Button> */}
+                    <Button mode="contained" onPress={() => onSubmit(true)}  style={[styles.button, { backgroundColor: '#3366FF'}]}> 
+                      Login
+                    </Button>
                 </Card.Content>
-            </Card>
+            </Card>   
         </KeyboardAvoidingView>
     );
 }
@@ -96,8 +101,16 @@ const styles = StyleSheet.create({
     container: { flex: 1, justifyContent: "center", alignItems: "center" },
     logo: { width: 100, height: 100, marginBottom: 20 }, // ปรับขนาดโลโก้ได้
     card: { width: "90%", padding: 20 },
-    button: { marginTop: 10 },
+    button: { 
+      marginTop: 10,
+      width: 150,  // กำหนดความกว้าง
+      height: 40,  // กำหนดความสูง
+      left: 80,
+      justifyContent: "center", // จัดให้อยู่ตรงกลางแนวตั้ง
+      alignItems: "center", // จัดให้อยู่ตรงกลางแนวนอน
+  }, 
 });
+
 //npm install cors
 
 

@@ -7,12 +7,41 @@ import * as Sharing from 'expo-sharing';
 import { zip } from 'react-native-zip-archive';
 import Checkbox from 'expo-checkbox';
 
+import { useEffect } from "react";
+import { MaterialIcons } from "@expo/vector-icons";
+import { DrawerActions } from '@react-navigation/native';
+import { useNavigation } from 'expo-router';
+
+
 export default function App() {
   const [selectedImages, setSelectedImages] = useState<string[]>([]);
   const [searchDONo, setSearchDONo] = useState('');
   const [searchDPDate, setSearchDPDate] = useState('');
   const [searchCustNo, setSearchCustNo] = useState('');
   const [selectAll, setSelectAll] = useState(false);
+  const navigation = useNavigation();
+
+  useEffect(() => {
+      navigation.setOptions({
+        title: 'ใบจ่ายสินค้า',
+        headerShown: true,
+        headerLeft: () => (
+          <MaterialIcons.Button 
+            name="menu"
+            backgroundColor="#3399FF"
+            onPress={() => {navigation.dispatch(DrawerActions.openDrawer());}}
+          />
+        ),
+        headerStyle: {
+          backgroundColor: '#3399FF'
+        },
+        headerTintColor: 'white',
+        headerTitleStyle: {
+          fontWeight: 'bold'
+        }
+      });
+  },[navigation]);
+  
 
   const { data } = useQuery({
     queryKey: ['salesData'],

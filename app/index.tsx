@@ -17,7 +17,7 @@ export default function Index() {
                 console.log("🔍 Token ที่อ่านได้:", token); // ✅ Debug Token
 
                 if (token) {
-                    router.replace("/(tabs)"); // ✅ ไปที่หน้า Home
+                    router.replace("/(main)/(tabs)/(home)"); // ✅ ไปที่หน้า Home
                 } else {
                     router.replace("/(auth)/login"); // ❌ ไม่มี Token ไป Login
                 }

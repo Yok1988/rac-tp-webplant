@@ -35,7 +35,7 @@ export const loginInServiceToken = async (userid: string, password: string) => {
   
       if (data.success) {
         await AsyncStorage.setItem("token", data.token);
-        return { success: true, token: data.token };
+        return { success: true, token: data.token,Userid: data.Userid };
       }
   
       return { success: false, message: "Invalid credentials" };

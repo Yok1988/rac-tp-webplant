@@ -1,8 +1,12 @@
 import { View, Text, StyleSheet, Image, ScrollView } from "react-native";
-import { useRouter } from "expo-router";
+import { useRouter,useNavigation } from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Button } from "react-native-paper";
 import { WebView } from "react-native-webview"; // ✅ ใช้ WebView
+import { useEffect } from "react";
+import { MaterialIcons } from "@expo/vector-icons";
+import { DrawerActions } from '@react-navigation/native';
+import HomeLogo from "@/components/HomeLogo";
 
 export default function HomeScreen() {
     const router = useRouter();
@@ -11,6 +15,33 @@ export default function HomeScreen() {
         await AsyncStorage.removeItem("token");
         router.replace("/(auth)/login"); // ✅ กลับไปหน้า Login
     };
+
+    const navigation = useNavigation();
+  
+    useEffect(() => {
+        navigation.setOptions({
+          title: 'tpipolene',
+          headerTitle: () => <HomeLogo />,
+          headerTitleAlign: 'center',
+          headerShown: true,
+          headerLeft: () => (
+            <MaterialIcons.Button 
+              name="menu"
+              backgroundColor="#3399FF"
+              onPress={() => {
+                navigation.dispatch(DrawerActions.openDrawer());
+              }}
+            />
+          ),
+          headerStyle: {
+            backgroundColor: '#3399FF'
+          },
+          headerTintColor: 'white',
+          headerTitleStyle: {
+            fontWeight: 'bold'
+          }
+        });
+    },[navigation]);
 
     return (
         <ScrollView contentContainerStyle={styles.container}>
@@ -26,13 +57,13 @@ export default function HomeScreen() {
             {/* ✅ WebView (ทำให้เลื่อนได้) */}
             <View style={styles.webContainer}>
                 <WebView 
-                    source={{ uri: "https://www.tpipolene.com" }} 
+                    source={{ uri: "https://www.tpipolene.co.th" }} 
                     style={styles.webView}
                 />
             </View>
 
-            {/* ✅ Logout Button (เล็กลง) */}
-            <View style={styles.buttonContainer}>
+           
+            {/* <View style={styles.buttonContainer}> // ✅ Logout Butto
                 <Button 
                     mode="contained" 
                     onPress={handleLogout} 
@@ -41,7 +72,7 @@ export default function HomeScreen() {
                 >
                     Logout
                 </Button>
-            </View>
+            </View> */}
         </ScrollView>
     );
 }
@@ -72,7 +103,7 @@ const styles = StyleSheet.create({
     },
     webContainer: {
         width: "100%",
-        height: 700, // ✅ WebView สูงพอดีจอ
+        height: '100%', // ✅ WebView สูงพอดีจอ
         //height: 600, // ✅ WebView สูงพอดีจอ
         borderRadius: 10,
         overflow: "hidden",
@@ -99,8 +130,6 @@ const styles = StyleSheet.create({
         color: "#FFF",
     },
 });
-
-
 
 
 
