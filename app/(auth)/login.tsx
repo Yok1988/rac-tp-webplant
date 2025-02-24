@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { StyleSheet, KeyboardAvoidingView, Platform, Alert, Image } from "react-native";
 import { useRouter } from "expo-router";
 import { TextInput, Button, Card } from "react-native-paper";
@@ -6,12 +6,14 @@ import { loginService, loginInServiceToken } from "../../services/auth-service";
 import { useEffect } from "react";
 import { useNavigation } from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { AuthStoreContext } from "@/contexts/AuthContext";
 
 export default function LoginScreen() {
     const router = useRouter();
     const [userid, setUserid] = useState("");
     const [password, setPassword] = useState("");
     const navigation = useNavigation();
+    const {onUpdateAuthData} = useContext(AuthStoreContext);
   
     useEffect(() => {
         navigation.setOptions({ headerShown: false });
@@ -58,6 +60,10 @@ export default function LoginScreen() {
       
         if (res?.success) {
           console.log("✅ ล็อกอินสำเร็จ");
+          // update global isAuth is true
+          
+          //await onUpdateAuthData(); 
+
           router.replace("/(main)/(tabs)/(home)");
           console.log(`🎉 เข้าสู่ระบบสำเร็จ! ยินดีต้อนรับ ${res.Userid}`);
           alert(`🎉 เข้าสู่ระบบสำเร็จ! ยินดีต้อนรับ ${res.Userid}`);
@@ -89,7 +95,7 @@ export default function LoginScreen() {
                       เข้าสู่ระบบ (ใช้ Token)
                     </Button> */}
                     <Button mode="contained" onPress={() => onSubmit(true)}  style={[styles.button, { backgroundColor: '#3366FF'}]}> 
-                      Login
+                      Login 🔑
                     </Button>
                 </Card.Content>
             </Card>   
@@ -111,6 +117,10 @@ const styles = StyleSheet.create({
   }, 
 });
 
+
+function onUpdateAuthData() {
+  throw new Error("Function not implemented.");
+}
 //npm install cors
 
 

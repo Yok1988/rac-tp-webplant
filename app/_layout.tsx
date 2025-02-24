@@ -1,12 +1,16 @@
-import { Stack } from "expo-router";
+import AuthStoreProvider from "@/contexts/AuthContext";
+import { Slot, Stack } from "expo-router";
 
-export default function Layout() {
+export default function RootLayout() {
     return (
-        <Stack>
-            {/* หน้าเริ่มต้น */}
-            <Stack.Screen name="(main)" options={{ headerShown: false }} />  
-            <Stack.Screen name="(auth)" options={{ headerShown: false }} />  
-        </Stack>
+     <AuthStoreProvider>
+        <Slot />
+      </AuthStoreProvider>
+        // <Stack>
+        //     {/* หน้าเริ่มต้น */}
+        //     <Stack.Screen name="(main)" options={{ headerShown: false }} />  
+        //     <Stack.Screen name="(auth)" options={{ headerShown: false }} />  
+        // </Stack>
     );
 }
 

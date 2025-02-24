@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "TPI CC",
+    "name": "TPIPL",
     "slug": "react-tpipl-erp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon-tp.png",
+    "icon": "./assets/images/TPI-Logo.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -13,7 +13,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/icon-tp.png",
+        "foregroundImage": "./assets/images/TPI-Logo.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.anonymous.reacttpiplerp"

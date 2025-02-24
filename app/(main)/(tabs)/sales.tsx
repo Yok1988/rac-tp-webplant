@@ -12,7 +12,7 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { DrawerActions } from '@react-navigation/native';
 import { useNavigation } from 'expo-router';
 
-export default function App() {
+export default function salesApp() {
   const [selectedImages, setSelectedImages] = useState<string[]>([]);
   const [searchDONo, setSearchDONo] = useState('');
   const [searchDPDate, setSearchDPDate] = useState('');

@@ -30,6 +30,22 @@ export default function AppMenu(props: DrawerContentComponentProps) {
             }}
           />
           <Drawer.Item
+            icon="account"
+            label="โปรไฟล์"
+            right={() => <MaterialIcons name="keyboard-arrow-right" size={20} />}
+            onPress={() => {
+              props.navigation.navigate('(profile)');
+            }}
+          />
+          <Drawer.Item
+            icon="chart-bar"
+            label="แดชบอร์ด"
+            right={() => <MaterialIcons name="keyboard-arrow-right" size={20} />}
+            onPress={() => {
+              props.navigation.navigate('(dashboard)');
+            }}
+          />
+          <Drawer.Item
             icon="web"
             label="เข้าเว็บไซต์ TPIPL"
             right={() => <MaterialIcons name="keyboard-arrow-right" size={20} />}
@@ -37,9 +53,27 @@ export default function AppMenu(props: DrawerContentComponentProps) {
               props.navigation.navigate('(product)');
             }}
           />
+           <Drawer.Item
+            icon="message"
+            label="ความช่วยเหลือ"
+            right ={ () => <MaterialIcons name= "keyboard-arrow-right" size={20}/>}
+            onPress={() => {props.navigation.navigate('(help)'); }}
+          />
+          <Drawer.Item
+            icon="cog"
+            label="การตั้งค่า"
+            right ={ () => <MaterialIcons name= "keyboard-arrow-right" size={20}/>}
+            onPress={() => {props.navigation.navigate('(setting)'); }}
+          />
+          <Drawer.Item
+            icon="information"
+            label="เกี่ยวกับ"
+            right ={ () => <MaterialIcons name= "keyboard-arrow-right" size={20}/>}
+            onPress={() => {props.navigation.navigate('(about)'); }}
+          />
         </Drawer.Section>
 
-        <Drawer.Section title="ระบบ">
+        {/* <Drawer.Section title="ระบบ"> */}
           <Drawer.Item
             icon="logout"
             label="ออกจากระบบ"
@@ -48,8 +82,8 @@ export default function AppMenu(props: DrawerContentComponentProps) {
               await logoutService();
               handleLogout();
             }}
-          />
-        </Drawer.Section>
+          />          
+        {/* </Drawer.Section> */}
       </ScrollView>
   )
 }
