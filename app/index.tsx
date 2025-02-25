@@ -50,7 +50,7 @@ export default function Index() {
             </View>
         );
     }
-
+    
     return null; // ✅ ป้องกันปัญหา Render ค้าง
 }
 

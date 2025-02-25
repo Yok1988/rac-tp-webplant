@@ -6,13 +6,12 @@ import { Slot } from "expo-router";
 export default function RootLayout() {
     return (
       <AuthStoreProvider>   
-          <LanguageProvider>
+        <LanguageProvider>
             <Slot />        
         </LanguageProvider>   
       </AuthStoreProvider>
     );
 }
-
 
 
 // import AuthStoreProvider from "@/contexts/AuthContext";

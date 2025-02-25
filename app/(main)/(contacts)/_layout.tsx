@@ -1,6 +1,9 @@
 import { Stack } from "expo-router";
 export default function ContactLayout() { 
-    <Stack>      
-        <Stack.Screen name="contact" />
-    </Stack>    
+    return (
+        <Stack>
+            {/* <Stack.Screen name="contact" /> */}
+            <Stack.Screen name="contact-th-en" />
+        </Stack>
+      )
 }
