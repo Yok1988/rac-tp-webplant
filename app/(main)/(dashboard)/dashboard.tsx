@@ -5,21 +5,23 @@ import { useEffect } from 'react';
 import { StyleSheet, View, Text, ScrollView, ActivityIndicator, Dimensions } from 'react-native';
 import { useQuery } from '@tanstack/react-query';
 import { getSalesOrderHCService } from '@/services/sales-service';
+
 export default function DashboardScreen() {
 
   const navigation = useNavigation(); //  แฮมเบอร์กอร์
    // Fetch sales data
-    const { data } = useQuery({
-       queryKey: ['salesDatHCAx'],
-       queryFn: async () => {
-         const response = await getSalesOrderHCService();
-         return response.data;
-       },
-     });  
+    // const { data } = useQuery({
+    //    queryKey: ['salesDatHCAx'],
+    //    queryFn: async () => {
+    //      const response = await getSalesOrderHCService();
+    //      return response.data;
+    //    },
+    //  });  
      
  useEffect(()=> {
     navigation.setOptions({
-      title: 'Dashboard',headerShown:true,
+      title:'Dashboard',
+      headerShown:true,
       headerLeft:() => ( <MaterialIcons.Button name= "menu" backgroundColor ="#3399FF" onPress={ ()=>{navigation.dispatch(DrawerActions.openDrawer())} } />),
       headerStyle : { backgroundColor : "#3399FF"},
       headerTintColor : 'white',

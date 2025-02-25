@@ -6,38 +6,18 @@ import { loginService, loginInServiceToken } from "../../services/auth-service";
 import { useEffect } from "react";
 import { useNavigation } from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { AuthStoreContext } from "@/contexts/AuthContext";
+//import { AuthStoreContext } from "@/contexts/AuthContext";
 
 export default function LoginScreen() {
     const router = useRouter();
     const [userid, setUserid] = useState("");
     const [password, setPassword] = useState("");
     const navigation = useNavigation();
-    const {onUpdateAuthData} = useContext(AuthStoreContext);
+    //const {onUpdateAuthData} = useContext(AuthStoreContext);
   
     useEffect(() => {
         navigation.setOptions({ headerShown: false });
-    }, [navigation]);
-
-    // const handleLogin = async () => {
-    //     if (!userid.trim() || !password.trim()) {
-    //         Alert.alert("⚠️", "Please enter User ID and Password");
-    //         return;
-    //     }
-    //     if (password.length < 2) {
-    //         alert("⚠️ Password must be at least 2 characters long.");
-    //         return;
-    //     }
-
-    //     const res = await loginService(userid, password);
-    //     if (res?.success) {
-    //         console.log("✅ 🔓 ไปหน้าหลัก 🏠");
-    //         router.replace("/(tabs)");
-    //         alert(`🔓 Login Success! Welcome👏💖 ${res.Userid}`);
-    //     } else {
-    //         Alert.alert("❌ Login Failed", "Invalid credentials");
-    //     }
-    // };
+    }, [navigation]);  
 
     const onSubmit = async (useToken: boolean) => {
         if (!userid.trim() || !password.trim()) {
@@ -95,7 +75,7 @@ export default function LoginScreen() {
                       เข้าสู่ระบบ (ใช้ Token)
                     </Button> */}
                     <Button mode="contained" onPress={() => onSubmit(true)}  style={[styles.button, { backgroundColor: '#3366FF'}]}> 
-                      Login 🔑
+                     Login 🔑
                     </Button>
                 </Card.Content>
             </Card>   

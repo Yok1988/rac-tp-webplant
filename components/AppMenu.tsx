@@ -57,8 +57,15 @@ export default function AppMenu(props: DrawerContentComponentProps) {
             icon="message"
             label="ความช่วยเหลือ"
             right ={ () => <MaterialIcons name= "keyboard-arrow-right" size={20}/>}
-            onPress={() => {props.navigation.navigate('(help)'); }}
+            onPress={() => {props.navigation.navigate('(help)'); }}            
+          /> 
+          <Drawer.Item
+            icon="contacts"
+            label="ติดต่อเรา"
+            right={() => <MaterialIcons name="keyboard-arrow-right" size={20} />}          
+            onPress={() => {props.navigation.navigate('(contacts)'); }}     
           />
+
           <Drawer.Item
             icon="cog"
             label="การตั้งค่า"

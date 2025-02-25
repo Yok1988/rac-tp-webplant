@@ -20,6 +20,7 @@ export default function MainLayout() {
                       <Drawer.Screen name="(product)" options={{headerShown: false}} /> 
                       <Drawer.Screen name="(dashboard)" options={{headerShown: false}} />     
                       <Drawer.Screen name="(help)" options={{headerShown: false}} />   
+                      <Drawer.Screen name="(contacts)" options={{headerShown: false}} />   
                       <Drawer.Screen name="(setting)" options={{headerShown: false}} />
                       <Drawer.Screen name="(about)" options={{headerShown: false}} />          
                       <Drawer.Screen name="+not-found" />       

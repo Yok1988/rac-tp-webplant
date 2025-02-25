@@ -9,7 +9,8 @@ const navigation = useNavigation(); //  แฮมเบอร์กอร์
 
   useEffect(()=> {
     navigation.setOptions({
-      title: 'เกี่ยวกับ',headerShown:true,
+      //title: 'เกี่ยวกับ',
+      headerShown:true,
       headerLeft:() => ( <MaterialIcons.Button name= "menu" backgroundColor ="#3399FF" onPress={ ()=>{navigation.dispatch(DrawerActions.openDrawer())} } />),
       headerStyle : { backgroundColor : "#3399FF"},
       headerTintColor : 'white',

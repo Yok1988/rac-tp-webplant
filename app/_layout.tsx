@@ -1,18 +1,35 @@
 import AuthStoreProvider from "@/contexts/AuthContext";
-import { Slot, Stack } from "expo-router";
+import {LanguageProvider } from "@/contexts/LanguageContext";
+
+import { Slot } from "expo-router";
 
 export default function RootLayout() {
     return (
-     <AuthStoreProvider>
-        <Slot />
+      <AuthStoreProvider>   
+          <LanguageProvider>
+            <Slot />        
+        </LanguageProvider>   
       </AuthStoreProvider>
-        // <Stack>
-        //     {/* หน้าเริ่มต้น */}
-        //     <Stack.Screen name="(main)" options={{ headerShown: false }} />  
-        //     <Stack.Screen name="(auth)" options={{ headerShown: false }} />  
-        // </Stack>
     );
 }
+
+
+
+// import AuthStoreProvider from "@/contexts/AuthContext";
+// import { Slot, Stack } from "expo-router";
+
+// export default function RootLayout() {
+//     return (
+//      <AuthStoreProvider>
+//         <Slot />
+//     </AuthStoreProvider>
+//         // <Stack>
+//         //     {/* หน้าเริ่มต้น */}
+//         //     <Stack.Screen name="(main)" options={{ headerShown: false }} />  
+//         //     <Stack.Screen name="(auth)" options={{ headerShown: false }} />  
+//         // </Stack>
+//     );
+// }
 
 
 // import AppMenu from '@/components/AppMenu';

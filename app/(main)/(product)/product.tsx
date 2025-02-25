@@ -1,9 +1,9 @@
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { DrawerActions } from '@react-navigation/native';
-import { router, useNavigation } from 'expo-router';
+import { useNavigation } from 'expo-router';
 import React from 'react';
 import { useEffect } from 'react';
-import { ScrollView, View ,StyleSheet} from 'react-native';
+import { ScrollView, View ,StyleSheet,Text} from 'react-native';
 import { WebView } from "react-native-webview"; // ✅ ใช้ WebView
 
 export default function ProductScreen() {
@@ -63,4 +63,5 @@ const styles = StyleSheet.create({
     webView: {
         flex: 1,
     }
+    
 });

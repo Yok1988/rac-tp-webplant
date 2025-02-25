@@ -11,6 +11,7 @@ export default function Index() {
     const navigation = useNavigation();
     
     useEffect(() => {
+
         navigation.setOptions({ headerShown: false });
 
         const checkLogin = async () => {
@@ -45,7 +46,7 @@ export default function Index() {
         return (
             <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
                 <ActivityIndicator size="large" />
-                <Text>กำลังโหลดข้อมูล...</Text>
+                <Text>{"กำลังโหลดข้อมูล..."}</Text>
             </View>
         );
     }
